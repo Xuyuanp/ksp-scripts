@@ -56,8 +56,8 @@ def do_some_math(n_nervs: int, n_rapiers: int, lko_twr: float, lko_dv: float):
     print()
 
     jet_dry_mass = rocket_total_mass
-    air_drag_loss = 1200  # an experienced value
-    gravity_loss = 500
+    air_drag_loss = 1200  # empirical value
+    gravity_loss = 500    # empirical value
     jet_dv = 1400 + air_drag_loss + gravity_loss
     jet_isp = ISP_RAPIER_JET
     jet_lf_mass = cal_fuel_mass(jet_dry_mass, jet_isp, jet_dv)
@@ -90,7 +90,7 @@ def do_some_math(n_nervs: int, n_rapiers: int, lko_twr: float, lko_dv: float):
 
 
 def main():
-    do_some_math(2, 3, 0.3, 4000)
+    do_some_math(2, 4, 0.3, 4000)
 
 
 if __name__ == '__main__':
