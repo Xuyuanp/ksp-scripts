@@ -1,5 +1,33 @@
 #! /usr/bin/env python
+import argparse
 import math
+
+
+parser = argparse.ArgumentParser(description='Mk2 SSTO calculator')
+parser.add_argument(
+    '--nervs',
+    type=int,
+    default=2,
+    help='num of nuclear engines'
+)
+parser.add_argument(
+    '--rapiers',
+    type=int,
+    default=4,
+    help='num of RAPIERs'
+)
+parser.add_argument(
+    '--lko-twr',
+    type=float,
+    default=0.3,
+    help='TWR after reaching LKO'
+)
+parser.add_argument(
+    '--lko-deltav',
+    type=int,
+    default=5000,
+    help='deltaV after reaching LKO'
+)
 
 
 g = 9.81
@@ -91,7 +119,8 @@ def do_some_math(n_nervs: int, n_rapiers: int, lko_twr: float, lko_dv: float):
 
 
 def main():
-    do_some_math(2, 4, 0.24, 5000)
+    args = parser.parse_args()
+    do_some_math(args.nervs, args.rapiers, args.lko_twr, args.lko_deltav)
 
 
 if __name__ == '__main__':
